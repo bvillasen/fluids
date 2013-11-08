@@ -33,8 +33,8 @@ for option in sys.argv:
   if option.find("device=") != -1: useDevice = int(option[-1]) 
  
 #set simulation volume dimentions 
-nWidth = 128*2
-nHeight = 64*2
+nWidth = 128
+nHeight = 64
 nData = nWidth*nHeight
 
 tempMin = 0.0001
@@ -44,7 +44,7 @@ g= -40
 vxIn =0.04
 tau = 0.55
 tauT = 0.55
-rhoOut=2.0
+rhoOut = 1.0
 
 faceq1 = 4./9
 faceq2 = 1./9
