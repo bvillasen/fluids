@@ -20,7 +20,7 @@ import pycuda.curandom as curandom
 currentDirectory = os.getcwd()
 parentDirectory = currentDirectory[:currentDirectory.rfind("/")]
 toolsDirectory = parentDirectory + "/tools"
-animation2DDirectory = parentDirectory + "/anim2D"
+animation2DDirectory = parentDirectory + "/animation2D"
 sys.path.extend( [toolsDirectory, animation2DDirectory] )
 
 import animation2D
@@ -40,7 +40,7 @@ nData = nWidth*nHeight
 tempMin = 0.0001
 tempMax = 0.05
 beta = 0.001 
-g= -40
+g = -40
 vxIn =0.04
 tau = 0.55
 tauT = 0.55
@@ -255,9 +255,20 @@ def stepFunction():
 #configure animation2D stepFunction and plotData
 animation2D.stepFunc = stepFunction
 animation2D.plotData_d = plotData_d
+animation2D.background_h = solid_h
+animation2D.background_d = solid_d
 animation2D.maxVar = np.float32( 1.1*tempMax )
 animation2D.minVar = tempMin
 
-##run animation
-#animation2D.animate()
+#nIterations = 10000
+#startTime = time.time()
+#[stepFunction() for i in range(nIterations)]
+#endTime = time.time()
+#print "Time i {0} iterations: {1} secs".format(nIterations, endTime-startTime)
+#print " Iter per second: {0}".format(nIterations/(endTime-startTime))
+
+
+
+#run animation
+animation2D.animate()
 
